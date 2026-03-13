@@ -1,4 +1,4 @@
-package com.helloAI.openai;
+package com.helloAI.springai;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,4 +1,4 @@
-package com.helloAI.openai.controller;
+package com.helloAI.springai.controller;
 
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,7 +20,12 @@ public class ChatController {
     public String message(@RequestParam("message") String message) {
 
         return this.chatClient
-                 .prompt(message)
+                 .prompt()
+                 .system("""
+                        You are a HR assistant. Answer queries only related to HR policies. If the users
+                        ask anything else you respond that you can only help with HR policies related questions.
+                        """)
+                 .user(message)
                  .call()
                  .content();
     }
